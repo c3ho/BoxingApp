@@ -5,6 +5,7 @@
 const MONGO_URI = 'mongodb+srv://test:tester123@cluster0-l5exq.mongodb.net/test?retryWrites=true&w=majority'
 const express = require('express');
 const bodyParser = require('body-parser');
+const HTTP_PORT = 8081;
 const app = express();
 const dataService = require("./data-service.js");
 const data = dataService(MONGO_URI);
@@ -23,9 +24,35 @@ app.get('/', function(req, res) {
 
 //returns all members
 app.get('/members', function(req, res){
-  res.send(findMembers())
+  data.findAll().then((data)=>{
+    res.json(data);
+  })
+  .catch((err)=>{
+    res.status(500).end();
+  })
+});
+
+//returns member with firstName, lastName
+app.get('/members/:firstName&:lastName', function(req, res){
+  const firstName = req.params.firstName;
+  const lastName = req.params.lastName;
+  data.findMember(firstName,lastName).then((data)=>{
+    if(data)
+      res.json(data);
+    else
+      res.status(404).end();
+  })
+  .catch((err)=>{
+    res.status(500).end();
+    
+  })
 })
+
 // listen for requests :)
-const listener = app.listen(process.env.PORT, function() {
-  console.log('Your app is listening on port ' + listener.address().port);
+data.connect().then(()=>{
+  app.listen(HTTP_PORT, ()=>{console.log("API listening on: " + HTTP_PORT)});
+})
+.catch((err)=>{
+  console.log("Unable to start the server: " + err);
+  process.exit();
 });
