@@ -37,13 +37,13 @@ app.get('/members/:firstName&:lastName', function(req, res){
   const firstName = req.params.firstName;
   const lastName = req.params.lastName;
   data.findMember(firstName,lastName).then((data)=>{
-    if(data)
+    if (data)
       res.json(data);
     else
       res.status(404).end();
   })
   .catch((err)=>{
-    res.status(500).end();
+    //res.status(500).end();
     
   })
 })

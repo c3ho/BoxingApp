@@ -97,7 +97,7 @@ module.exports = function(mongoURI){
 
   //placeholder for other functions such as returning or filtering list to user
   findMember: function(firstName, lastName){
-    return new Promise((resolve, reject)=>{
+    return new Promise(function(resolve, reject){
       Member.find({
       firstName: firstName,
       lastName: lastName
@@ -108,7 +108,7 @@ module.exports = function(mongoURI){
       })
       .catch((err)=>{
         reject(err);
-      }); 
+      });
     })
   }
   }
