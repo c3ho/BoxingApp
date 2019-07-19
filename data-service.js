@@ -42,29 +42,10 @@ module.exports = function (mongoURI) {
           note: String
         });
 
-        /*db.once('open', () => {
+        db.once('open', () => {
           Member = db.model("Member", memberSchema);
-          
-        //   var m1 = new Member({
-        //     firstName: 'Marina',
-        //     lastName: 'Rong',
-        //     enrollDate: '2014-08-01',
-        //     lastPaidDate: '2013-07-01',
-        //     membershipType: 'Trial',
-        //     lastActiveDate: '2019-07-01',
-        //     medical: '2019-05-01',
-        //     active: false,
-        //     note: 'Bye'
-        // });
-        
-        // m1.save(function (err){
-        //   if (err)
-        //     console.log("An issue occured while trying to save user");
-        //   else
-        //     console.log("Success");
-        // })
           resolve();
-        });*/
+        });
       });
     },
 
@@ -134,5 +115,24 @@ module.exports = function (mongoURI) {
           });
       })
     }
-  };
+  }
+            
+//   var m1 = new Member({
+//     firstName: 'Marina',
+//     lastName: 'Rong',
+//     enrollDate: '2014-08-01',
+//     lastPaidDate: '2013-07-01',
+//     membershipType: 'Trial',
+//     lastActiveDate: '2019-07-01',
+//     medical: '2019-05-01',
+//     active: false,
+//     note: 'Bye'
+// });
+
+// m1.save(function (err){
+//   if (err)
+//     console.log("An issue occured while trying to save user");
+//   else
+//     console.log("Success");
+// })
 }
