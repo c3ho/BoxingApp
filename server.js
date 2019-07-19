@@ -59,7 +59,7 @@ app.get('/members/:firstName&:lastName', function(req, res){
 
 // listen for requests :)
 data.connect().then(()=>{
-  app.listen(HTTP_PORT, ()=>{console.log("API listening on: " + HTTP_PORT)});
+  app.listen(process.env.PORT || HTTP_PORT, ()=>{console.log("API listening on: " + HTTP_PORT)});
 })
 .catch((err)=>{
   console.log("Unable to start the server: " + err);
