@@ -23,14 +23,14 @@ app.get('/', function(req, res) {
 });
 
 //adds new member
-app.post('/members', (req,res)=>{
-  data.enrollMember(req.body).then((data)=>{
-    res.json({"message": "Member added successfully"});
-  })
-  .catch((err)=>{
-    res.status(500).end();
-  })
-});
+// app.post('/members', (req,res)=>{
+//   data.enrollMember(req.body).then((data)=>{
+//     res.json({"message": "Member added successfully"});
+//   })
+//   .catch((err)=>{
+//     res.status(500).end();
+//   })
+// });
 
 //returns all members
 app.get('/members', function(req, res){
