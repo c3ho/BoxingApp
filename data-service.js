@@ -42,9 +42,9 @@ module.exports = function (mongoURI) {
           note: String
         });
 
-        db.once('open', () => {
+        /*db.once('open', () => {
           Member = db.model("Member", memberSchema);
-
+          
         //   var m1 = new Member({
         //     firstName: 'Marina',
         //     lastName: 'Rong',
@@ -57,14 +57,14 @@ module.exports = function (mongoURI) {
         //     note: 'Bye'
         // });
         
-        m1.save(function (err){
-          if (err)
-            console.log("An issue occured while trying to save user");
-          else
-            console.log("Success");
-        })
+        // m1.save(function (err){
+        //   if (err)
+        //     console.log("An issue occured while trying to save user");
+        //   else
+        //     console.log("Success");
+        // })
           resolve();
-        });
+        });*/
       });
     },
 
@@ -135,8 +135,4 @@ module.exports = function (mongoURI) {
       })
     }
   };
-
-
-//test member using me
-
 }
