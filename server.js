@@ -34,7 +34,7 @@ app.get('/', function(req, res) {
 
 //returns all members
 app.get('/members', function(req, res){
-  data.findAll().then((data)=>{
+  data.getAllMembers().then((data)=>{
     res.json(data);
   })
   .catch((err)=>{

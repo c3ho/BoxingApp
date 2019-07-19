@@ -49,6 +49,19 @@ module.exports = function (mongoURI) {
       });
     },
 
+    getAllMembers: function(){
+      return new Promise(function(resolve, reject){
+        Member.find()
+        .exec()
+        .then((members)=>{
+          resolve(members)
+        })
+        .catch((err)=>{
+          reject(err);
+        });
+      })
+    },
+    
     //update membership with either 1,3,6,12 months
     //possible error here
     renewMembership: function (firstName, lastName, months) {
