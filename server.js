@@ -7,6 +7,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const HTTP_PORT = 8081;
 const app = express();
+const cors = require('cors');
 const dataService = require("./data-service.js");
 const data = dataService(MONGO_URI);
 
@@ -14,6 +15,7 @@ const data = dataService(MONGO_URI);
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
 app.use(bodyParser.json());
 
+app.use(cors());
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
 
