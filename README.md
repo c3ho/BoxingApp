@@ -9,8 +9,8 @@ Planning to work on this throughout the school year to create a centralized webs
   <ul>
     <li>full stack app to keep track of all members and their statuses of the gym</li>
     <ul>
-    <li>the app should allow for statistics to track the flow of membership renewals/purchases</li>
-    <li>the app should notify the owner of memberships that are about to expire</li>
+    <li>notify the owner of memberships that are about to expire</li>
+    <li>allow for statistics to track the flow of membership renewals/purchases</li>
     <li>allow for the posting of notes in case a membership needs to be put on hold or misc info</li>
     <li>allow for the owner to sign up new members using an online form</li>
       <li>allow owner to update members based on current month renewal plans</li>
