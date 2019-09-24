@@ -17,7 +17,7 @@ Planning to work on this throughout the school year to create a centralized webs
     </ul>
   </ul>
 </ul>
-</br>
+<hr />
 Current status as of Summer 2019  
 <ul>
 <li>MongoDB linked to app and model has been created</li>
