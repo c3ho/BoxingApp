@@ -1,27 +1,19 @@
-Welcome to Glitch
-=================
+Started working on this app for a boxing gym I've been with for 5 years. Coach tracks members using pen and paper method, which for him works... however it could be improved in multiple ways.
 
-Click `Show` in the header to see your app live. Updates to your code will instantly deploy and update live.
+Planning to work on this throughout the school year to create a centralized website to allow for managing of most aspects of the gym such as
 
-**Glitch** is the friendly community where you'll build the app of your dreams. Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
+-integration with instagram for social interaction
+-link to Boxing Ontario's website to keep track of tournaments
+and most importantly
+-full stack app to keep track of all members and their statuses of the gym
+  -the app should allow for statistics to track the flow of membership renewals/purchases
+  -the app should notify the owner of memberships that are about to expire
+  -allow for the posting of notes in case a membership needs to be put on hold or misc info
+  -allow for the owner to sign up new members using an online form
+  -allow owner to update members based on current month renewal plans
 
-Find out more [about Glitch](https://glitch.com/about).
-
-
-Your Project
-------------
-
-On the front-end,
-- edit `public/client.js`, `public/style.css` and `views/index.html`
-- drag in `assets`, like images or music, to add them to your project
-
-On the back-end,
-- your app starts at `server.js`
-- add frameworks and packages in `package.json`
-- safely store app secrets in `.env` (nobody can see this but you and people you invite)
-
-
-Made by [Glitch](https://glitch.com/)
--------------------
-
-\ ゜o゜)ノ
+Current status as of Summer 2019
+-MongoDB linked to app and model has been created
+-CRUD operations written, awaiting testing
+-Basics of the site has been created
+-Need to figure out how to get the Modal working properly to allow for sign up of members
