@@ -21,7 +21,7 @@ Planning to work on this throughout the school year to create a centralized webs
 Current status as of Summer 2019  
 <ul>
 <li>MongoDB linked to app and model has been created</li>
-<li>CRUD operations written, awaiting testing</li>
+<li>CRUD operations written, awaiting testing, tested. They work!</li>
 <li>Basics of the site has been created</li>
 <li>Need to figure out how to get the Modal working properly to allow for sign up of members</li>
 </ul>
