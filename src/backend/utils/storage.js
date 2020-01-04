@@ -60,7 +60,7 @@ module.exports = {
       const date = moment(foundMember.expireDate);
       const newDate = date.add(months, 'month').toDate();
       const update = { expireDate: newDate };
-      
+
       await Member.findOneAndUpdate(filter, update);
       console.log("Successfully updated " + firstName + " "+ lastName + "for " + months + ".");
       return this.findMember(schema, firstName, lastName);
@@ -75,15 +75,14 @@ module.exports = {
       });
         newMember.save(function (err) {
           if (err) {
-            console.log(err);
-            console.log("An isssue occured while trying to save user");
+            console.log("An isssue occured while trying to save user", err);
           }
           else
             console.log(memberInfo.name + " " + memberInfo.lastName + " successfully enrolled to Gideon!");
         })
     },
     
-    findMember: (schema, firstName, lastName) => {
+    findMember: async (schema, firstName, lastName) => {
       const Member = mongoose.model('Members', schema);
       const query = { firstName: firstName, lastName: lastName};
       return Member.findOne(query);
