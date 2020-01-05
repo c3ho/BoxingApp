@@ -44,10 +44,31 @@ module.exports = {
         //});
     },
 
+    // returns all members
     getAllMembers: async (schema) => {
       const Member = mongoose.model('Members', schema);
       const query = Member.find()
       const results = await query;
+      return results;
+    },
+
+    // find all members with firstName and/or lastName
+    findMembers: async (schema, firstName, lastName) => {
+      let filter
+      if (firstName && lastName) {
+        filter = { firstName: firstName, lastName: lastName};
+      }
+
+      if (firstName && !lastName) {
+        filter = { firstName: firstName }
+      }
+
+      if (lastName) {
+        filter = { lastName: lastName }
+      }
+
+      const Member = mongoose.model('Members', schema);
+      const results = await Member.find(filter);
       return results;
     },
 
@@ -82,9 +103,11 @@ module.exports = {
         })
     },
     
+    // only finds one member
     findMember: async (schema, firstName, lastName) => {
       const Member = mongoose.model('Members', schema);
       const query = { firstName: firstName, lastName: lastName};
-      return Member.findOne(query);
+      const results = await Member.findOne(query);
+      return results;
     }
   }
