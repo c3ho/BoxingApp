@@ -44,10 +44,31 @@ module.exports = {
         //});
     },
 
+    // returns all members
     getAllMembers: async (schema) => {
       const Member = mongoose.model('Members', schema);
       const query = Member.find()
       const results = await query;
+      return results;
+    },
+
+    // find all members with firstName and/or lastName
+    findMembers: async (schema, firstName, lastName) => {
+      let filter
+      if (firstName && lastName) {
+        filter = { firstName: firstName, lastName: lastName};
+      }
+
+      if (firstName && !lastName) {
+        filter = { firstName: firstName }
+      }
+
+      if (lastName) {
+        filter = { lastName: lastName }
+      }
+
+      const Member = mongoose.model('Members', schema);
+      const results = await Member.find(filter);
       return results;
     },
 
@@ -60,7 +81,7 @@ module.exports = {
       const date = moment(foundMember.expireDate);
       const newDate = date.add(months, 'month').toDate();
       const update = { expireDate: newDate };
-      
+
       await Member.findOneAndUpdate(filter, update);
       console.log("Successfully updated " + firstName + " "+ lastName + "for " + months + ".");
       return this.findMember(schema, firstName, lastName);
@@ -75,17 +96,18 @@ module.exports = {
       });
         newMember.save(function (err) {
           if (err) {
-            console.log(err);
-            console.log("An isssue occured while trying to save user");
+            console.log("An isssue occured while trying to save user", err);
           }
           else
             console.log(memberInfo.name + " " + memberInfo.lastName + " successfully enrolled to Gideon!");
         })
     },
     
-    findMember: (schema, firstName, lastName) => {
+    // only finds one member
+    findMember: async (schema, firstName, lastName) => {
       const Member = mongoose.model('Members', schema);
       const query = { firstName: firstName, lastName: lastName};
-      return Member.findOne(query);
+      const results = await Member.findOne(query);
+      return results;
     }
   }
